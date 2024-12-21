@@ -12,6 +12,7 @@
   "dependencies": {
     "carta-la-milagrosa": "file:",
     "react": "^18.3.1",
+    "react-allergens": "^0.2.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
