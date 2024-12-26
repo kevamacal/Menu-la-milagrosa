@@ -1,161 +1,190 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #f9f9f9, #e9efff);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* Main Card */
 .card {
-  max-width: 900px;
-  margin: 40px auto;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
   padding: 30px;
-  background: #f9f7f1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
   text-align: center;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: 90%;
+  max-width: 400px;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-.card-header h1 {
-  font-family: 'Raleway', sans-serif; /* Tipografía moderna y estilizada */
-  font-size: 3.5rem; /* Un tamaño grande pero no excesivo */
-  color: #4b2d20; /* Tono marrón oscuro cálido */
-  margin-bottom: 15px; /* Espacio más pequeño abajo */
-  font-weight: 800; /* Mayor grosor para darle más presencia */
-  text-transform: uppercase; /* Texto en mayúsculas */
-  letter-spacing: 3px; /* Espaciado amplio entre letras */
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar el título */
-  line-height: 1.3;
-  padding-top: 10px; /* Menos padding arriba */
-}
-
-.product-type {
+.card h1 {
+  font-size: 2rem;
+  color: #222;
   margin-bottom: 20px;
-  border: 1px solid #ddd;
+  letter-spacing: 1px;
+}
+
+/* Buttons Section */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buttons a {
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+.buttons button {
+  background: linear-gradient(120deg, #87bfff, #599fd8);
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
   border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Items Page */
+.product-type {
+  margin: 20px 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .product-type h2 {
-  font-family: "Merriweather", serif;
-  font-size: 1.5rem;
-  color: #3e3e3e;
-  border-bottom: 2px solid #8c4b38;
-  padding: 15px;
+  background: #599fd8;
+  color: #ffffff;
+  padding: 15px 20px;
+  font-size: 1.25rem;
   cursor: pointer;
-  user-select: none;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .product-type h2:hover {
-  color: #8c4b38;
-  background-color: #f4f0e3; /* Añadido un fondo suave al hacer hover */
+  background: #87bfff;
 }
 
 .product-type-content {
-  padding: 10px;
   max-height: 0;
   overflow: hidden;
-  visibility: hidden;
-  transition: max-height 0.5s ease-out, visibility 0s linear 0.5s;
+  transition: max-height 0.4s ease;
 }
 
 .product-type.open .product-type-content {
-  max-height: 10000px;
-  visibility: visible;
-  transition: max-height 0.5s ease-out, visibility 0s linear 0s;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
+/* Product List */
 .products-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  transition: grid-template-columns 0.3s ease;
+  gap: 15px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .product {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
+  background: #fdfdfd;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #f9f7f1; /* Fondo suave al hacer hover */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .product h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #4f2c1d;
+  font-size: 1.2rem;
   margin-bottom: 10px;
-  font-family: "Lora", serif;
-  transition: color 0.3s ease;
+  color: #333333;
 }
 
 .product p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: #666;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-.product .tapa {
-  background-color: #fff1c1;
-  padding: 8px;
-  border-radius: 5px;
+.tapa,
+.ration {
   font-weight: bold;
-  color: #c95e2f;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  color: #599fd8;
 }
 
-.product .plato {
-  background-color: #e1f7e4;
-  padding: 8px;
-  border-radius: 5px;
-  font-weight: bold;
-  color: #3f9c51;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
+/* Allergens */
 .allergens {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-top: 15px;
-  transition: all 0.3s ease;
+  margin-top: 10px;
+  justify-content: center;
 }
 
 .allergens span {
-  display: flex;
-  align-items: center;
-  background-color: #f2f2f2;
-  padding: 6px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  background: #f8d7da;
+  color: #721c24;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.allergens span::before {
-  content: url('path_to_allergen_icon');
-  margin-right: 6px;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-  .card{
-    padding: 5px 10px;
-  }
-  .card-header h1 {
-    font-size: 2rem;
-  }
-
-  .product h3 {
-    font-size: 1.1rem;
-  }
-
-  .product p {
+  .buttons button {
     font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .product {
+    padding: 10px;
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
