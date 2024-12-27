@@ -8,6 +8,13 @@ export default function Product({ product }) {
       {product.ration && (
         <p className="ration">Plato: {product.ration.toFixed(2)}€</p>
       )}
+      {product.price && (
+        <p className="price">Precio: {product.price.toFixed(2)}€</p>
+      )}
+      {product.cup && <p className="price">Copa: {product.cup.toFixed(2)}€</p>}
+      {product.bottle && (
+        <p className="price">Botella: {product.bottle.toFixed(2)}€</p>
+      )}
       {product.allergens && (
         <Allergens allergens={product.allergens}></Allergens>
       )}

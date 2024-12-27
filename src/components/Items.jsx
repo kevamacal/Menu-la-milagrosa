@@ -7,8 +7,8 @@ import ProductType from "./ProductType.jsx";
 
 export default function Items({ type }) {
   const data = cardData.filter((product) => product.productType === type);
-
   let types = [];
+  console.log(data);
 
   if (type === "COMIDAS") {
     types = foodTypes;
@@ -19,7 +19,7 @@ export default function Items({ type }) {
   return (
     <div>
       {types.map((type) => (
-        <ProductType key={data} type={type} products={cardData}></ProductType>
+        <ProductType key={type} type={type} products={data}></ProductType>
       ))}
     </div>
   );
