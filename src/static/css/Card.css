@@ -85,6 +85,7 @@ html, body, #root {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  width: 90%;
 }
 
 .product-type h2 {
