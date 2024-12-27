@@ -79,6 +79,12 @@ html, body, #root {
 }
 
 /* Product Types */
+.product-types {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .product-type {
   margin: 20px 0;
   background: #ffffff;

@@ -17,7 +17,7 @@ export default function Items({ type }) {
   }
 
   return (
-    <div>
+    <div className="product-types">
       {types.map((type) => (
         <ProductType key={type} type={type} products={data}></ProductType>
       ))}
