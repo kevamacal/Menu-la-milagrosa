@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   foodTypes,
   drinkTypes,
@@ -6,20 +7,25 @@ import {
 import ProductType from "./ProductType.jsx";
 
 export default function Items({ type }) {
-  const data = cardData.filter((product) => product.productType === type);
-  let types = [];
-  console.log(data);
+  const [openType, setOpenType] = useState(null); // Estado global para los tipos abiertos
 
-  if (type === "COMIDAS") {
-    types = foodTypes;
-  } else if (type === "BEBIDAS") {
-    types = drinkTypes;
-  }
+  const handleToggle = (productTypeName) => {
+    setOpenType((prev) => (prev === productTypeName ? null : productTypeName));
+  };
+
+  const data = cardData.filter((product) => product.productType === type);
+  const types = type === "COMIDAS" ? foodTypes : drinkTypes;
 
   return (
     <div className="product-types">
       {types.map((type) => (
-        <ProductType key={type} type={type} products={data}></ProductType>
+        <ProductType
+          key={type}
+          type={type}
+          products={data}
+          isOpen={openType === type}
+          onToggle={handleToggle}
+        />
       ))}
     </div>
   );
